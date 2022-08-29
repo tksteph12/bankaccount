@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.sg.kata</groupId>
+    <artifactId>bankaccount</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>Bank Account</name>
+    <description>Bank Account Kata</description>
+    <properties>
+        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+        <jdk.version>11</jdk.version>
+
+        <!-- Logging -->
+        <log4j.version>2.18.0</log4j.version>
+
+        <!-- Stack Test -->
+        <junit-jupiter.version>5.9.0</junit-jupiter.version>
+    </properties>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target><!-- jvm compatibility-->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
