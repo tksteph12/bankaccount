@@ -20,11 +20,4 @@ public class SavingsAccount extends Account{
         return super.equals(obj);
     }
 
-    @Override
-    public String toString() {
-        return "SavingsAccount{" +
-                "operations=" + operations +
-                ", dateOpened=" + dateOpened +
-                '}';
-    }
 }
