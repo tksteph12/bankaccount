@@ -1,7 +1,7 @@
-package com.sg.kata.client;
+package com.sg.kata.model.client;
 
 
-import com.sg.kata.account.IAccount;
+import com.sg.kata.model.account.IAccount;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,13 +23,4 @@ public class IndividualBankClient extends BankClient {
     private String placeOfBirth;
 
 
-    @Override
-    public boolean createAccount() {
-        return false;
-    }
-
-    @Override
-    public String getContactInformation() {
-        return null;
-    }
 }

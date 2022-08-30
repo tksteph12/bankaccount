@@ -1,4 +1,4 @@
-package com.sg.kata.operation;
+package com.sg.kata.model.operation;
 
 import lombok.Getter;
 
@@ -9,7 +9,7 @@ import java.util.Date;
 public abstract class BankOperation implements IBankOperation{
     protected Date date;
 
-    protected void isValidOperation(final double operationAmount){
+    public void isValidOperation(final double operationAmount){
         if(operationAmount < 0){
             throw new IllegalArgumentException("The Amount Cannot be negative!");
         }

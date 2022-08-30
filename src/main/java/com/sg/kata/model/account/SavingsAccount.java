@@ -1,4 +1,4 @@
-package com.sg.kata.account;
+package com.sg.kata.model.account;
 
 import java.time.Instant;
 import java.util.Date;

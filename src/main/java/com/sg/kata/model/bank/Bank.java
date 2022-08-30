@@ -1,6 +1,6 @@
-package com.sg.kata.bank;
+package com.sg.kata.model.bank;
 
-import com.sg.kata.client.BankClient;
+import com.sg.kata.model.client.BankClient;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;

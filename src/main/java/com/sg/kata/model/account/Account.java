@@ -1,11 +1,11 @@
-package com.sg.kata.account;
+package com.sg.kata.model.account;
 
-import com.sg.kata.operation.BankDepositOperation;
-import com.sg.kata.operation.IBankOperation;
+import com.sg.kata.model.operation.IBankOperation;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -14,34 +14,16 @@ import java.util.Objects;
 @Setter
 @RequiredArgsConstructor
 public abstract class Account implements IAccount {
-    private final String accountNumber;
-    protected List<IBankOperation> operations;
+    private final String number;
+    protected List<IBankOperation> operations = new ArrayList<>();
     private double balance;
 
     protected Date dateOpened;
-
-    @Override
-    public synchronized boolean executeOperation(final IBankOperation bankOperation) {
-        boolean result = false;
-        switch (bankOperation) {
-            case BankDepositOperation bankDeposit -> {
-                this.balance += bankDeposit.getAmount();
-                operations.add(bankDeposit);
-                return true;
-            }
-            default -> throw new IllegalStateException("Unexpected value: " + bankOperation);
-        }
-    }
-
-    @Override
-    public String printAccountStatement() {
-        return null;
-    }
-
+    
     @Override
     public String toString() {
         return "Account{" +
-                "accountNumber='" + accountNumber + '\'' +
+                "number='" + number + '\'' +
                 ", operations=" + operations +
                 ", balance=" + balance +
                 ", dateOpened=" + dateOpened +
@@ -56,7 +38,7 @@ public abstract class Account implements IAccount {
         Account account = (Account) o;
 
         if (Double.compare(account.balance, balance) != 0) return false;
-        if (!Objects.equals(accountNumber, account.accountNumber))
+        if (!Objects.equals(number, account.number))
             return false;
         if (!Objects.equals(operations, account.operations)) return false;
         return Objects.equals(dateOpened, account.dateOpened);
@@ -66,7 +48,7 @@ public abstract class Account implements IAccount {
     public int hashCode() {
         int result;
         long temp;
-        result = accountNumber != null ? accountNumber.hashCode() : 0;
+        result = number != null ? number.hashCode() : 0;
         result = 31 * result + (operations != null ? operations.hashCode() : 0);
         temp = Double.doubleToLongBits(balance);
         result = 31 * result + (int) (temp ^ (temp >>> 32));

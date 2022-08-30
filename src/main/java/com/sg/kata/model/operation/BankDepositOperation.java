@@ -1,4 +1,4 @@
-package com.sg.kata.operation;
+package com.sg.kata.model.operation;
 
 import lombok.Getter;
 import lombok.Setter;
