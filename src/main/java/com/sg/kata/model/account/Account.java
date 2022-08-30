@@ -17,7 +17,6 @@ public abstract class Account implements IAccount {
     private final String number;
     protected List<IBankOperation> operations = new ArrayList<>();
     private double balance;
-
     protected Date dateOpened;
     
     @Override
