@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
 @Setter
 @EqualsAndHashCode
 public class IndividualBankClient extends BankClient {
-    private List<IAccount> accounts;
+    private List<IAccount> accounts = new ArrayList<>();
 
     private String id;
 
@@ -22,5 +23,11 @@ public class IndividualBankClient extends BankClient {
     private Date birthDate;
     private String placeOfBirth;
 
+    public IndividualBankClient(String firstName, String lastName, Date birthDate, String placeOfBirth){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.placeOfBirth = placeOfBirth;
+        this.birthDate = birthDate;
+    }
 
 }
