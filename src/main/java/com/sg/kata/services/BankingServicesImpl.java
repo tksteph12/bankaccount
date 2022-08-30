@@ -10,9 +10,7 @@ import com.sg.kata.model.operation.BankWithdrawalOperation;
 import com.sg.kata.model.operation.IBankOperation;
 import org.apache.log4j.Logger;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 public class BankingServicesImpl implements IBankingSevices {
@@ -60,11 +58,18 @@ public class BankingServicesImpl implements IBankingSevices {
         Map<String,List<IBankOperation>> operationsHistory = new HashMap<>();
         accounts.stream().forEach(
                 iAccount -> {
-                    operationsHistory.put(iAccount.getNumber(),iAccount.getOperations());
+                    operationsHistory.put(iAccount.getNumber(),orderList(iAccount.getOperations()));
                 }
         );
         return operationsHistory;
     }
+
+    private List<IBankOperation> orderList(List<IBankOperation> operations) {
+        //sorting by date asc
+        Collections.sort(operations, Comparator.comparing(IBankOperation::getDate));
+        return operations;
+    }
+
 
     private boolean isValidWithdrawal(BankWithdrawalOperation operation, IAccount account) throws InvalidOperationException {
         if(Double.compare(operation.getAmount(),account.getBalance()) < 0)
