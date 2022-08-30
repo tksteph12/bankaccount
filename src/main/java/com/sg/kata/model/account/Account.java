@@ -23,9 +23,8 @@ public abstract class Account implements IAccount {
     public String toString() {
         return "Account{" +
                 "number='" + number + '\'' +
-                ", operations=" + operations +
                 ", balance=" + balance +
-                ", dateOpened=" + dateOpened +
+                ", opened Since=" + dateOpened +
                 '}';
     }
 

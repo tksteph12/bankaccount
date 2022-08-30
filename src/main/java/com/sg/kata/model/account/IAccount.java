@@ -1,6 +1,9 @@
 package com.sg.kata.model.account;
 
+import com.sg.kata.model.operation.IBankOperation;
+
 import java.util.Date;
+import java.util.List;
 
 public interface IAccount {
 
@@ -10,5 +13,7 @@ public interface IAccount {
     double getBalance();
 
     Date getDateOpened();
+
+    List<IBankOperation> getOperations();
 
 }
